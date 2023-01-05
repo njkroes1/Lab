@@ -5,7 +5,7 @@ with source as (
 ,renamed as (
     SELECT 
         -- ID's
-        TRY_CAST(ParticipantID as INT)    as ParticipantID
+        ParticipantID
 
         -- Patient Demographics
        ,Age
@@ -33,7 +33,7 @@ with source as (
       ,DateDischarge
       ,SessionsAttend
       ,WeeksAttend
-      ,SessionsAttend2
+      --,SessionsAttend2
       ,PrePHQScore
       ,NewPreABASI_Think
       ,NewPreABASI_Solution
