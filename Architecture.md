@@ -7,7 +7,7 @@ To complete this, the technologies used were:
 - Snowflake
 - DBT
 
-![Overview](docs\overview.png)
+![Overview](docs/overview.png)
 
 ## Python
 To ingest the excel file into Snowflake, the following packages were implemented:
