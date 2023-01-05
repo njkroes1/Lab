@@ -39,5 +39,11 @@ DBT is used to perform the transformations inside of Snowflake. The project is s
 
 **Staging** and **Intermediate** models are persisted as views and the **Marts* models are persisted as tables.
 
+## ERD
+Based on the source data and the questions provided for analysis, the following tables were created in the **Marts** layer to facilitate analysis:
+- DIM_DEMOGRAPHICS
+- FACT_OUTCOMES
+
+![ERD](docs/ERD.png)
 
 
