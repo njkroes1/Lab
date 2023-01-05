@@ -1,0 +1,9 @@
+ version: 2
+
+sources:
+  - name: charlie_health
+    database: charlie_health
+    schema: raw
+    tables:
+      - name: "outcomes"
+

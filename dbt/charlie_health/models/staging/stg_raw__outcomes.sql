@@ -1,29 +1,34 @@
 with source as (
-    select * from {{ source('raw', 'Outcomes')}}
+    select * from {{ source('charlie_health', 'outcomes')}}
 )
 
-renamed as (
+,renamed as (
     SELECT 
         -- ID's
         TRY_CAST(ParticipantID as INT)    as ParticipantID
 
-        -- Bits
-      ,TRY_CAST(PreHLCRefYN as BIT)         as PreHLCRefYN
-      ,TRY_CAST(POSTHLCRefYN as BIT)        as POSTHLCRefYN
-      ,TRY_CAST(NewPreHLCAdmYN as BIT)      as NewPreHLCAdmYN
-      ,TRY_CAST(POST_HLCAdmYN as BIT)       as POST_HLCAdmYN
-      ,PreER
-      ,POST_ER
-      ,DischargeMonth
-      ,DischargeCode
-      ,IntakeMonth
-      ,Age
+        -- Patient Demographics
+       ,Age
       ,AgeGroup
       ,Gender
       ,Transgender
       ,SexOrient
       ,SexOrientBinary
       ,Therapist
+
+       -- Type of discharge
+
+       -- Depression scores (PHQ)
+       
+      ,PreHLCRefYN         
+      ,POSTHLCRefYN        
+      ,NewPreHLCAdmYN      
+      ,POST_HLCAdmYN       
+      ,PreER
+      ,POST_ER
+      ,DischargeMonth
+      ,DischargeCode
+      ,IntakeMonth
       ,IntakeDate
       ,DateDischarge
       ,SessionsAttend
