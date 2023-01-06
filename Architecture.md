@@ -10,14 +10,26 @@ To complete this, the technologies used were:
 ![Overview](docs/overview.png)
 
 ## Python
-To ingest the excel file into Snowflake, the following packages were implemented:
-- SQLAlchemy 
-- pandas
-- configparser
-- openpyxl
+The purpose of the python project is to ingest data into Snowflake. There are 2 files in the python project:
+- ingest.py
+- ingest_modules.py
 
+### ingest.py
+The ingest.py script is the main script that leverages **ingest_modules** to perform the following tasks:
+1) Read Excel file into a pandas dataframe
+2) Write dataframe to Snowflake table
 
- openpyxl is used to read in the XLSX file and sheet into a pandas dataframe. SQLAlchemy is then used to create a connection to Snowflake and then the `to_sql` function of the pandas dataframe is used to write the dataframe to Snowflake.
+### ingest_modules.py
+The ingest_modules.py script contains the following functions:
+- readConfig()
+- readExcelFile()
+- writeDFToSnowflake()
+
+**readConfig()** utilizes the *configparser* modules to read in configuration settings.
+
+**readExcelFile()** reads the provided Excel file into a pandas dataframe using *pandas* and *openpyxl* library. It also converts the column names of the dataframe to uppercase to be consistent with Snowflake naming conventions.
+
+**writeDFToSnowflake()** writes the resulting dataframe to Snowflake using the *SQLAlchemy* and the `to_sql` function.
 
 ## Snowflake
 Snowflake is setup into three different zones in order to be consistent with the ELT approach:
